@@ -1,0 +1,192 @@
+{
+  "raw_shape": [
+    5120,
+    16
+  ],
+  "step1": {
+    "rows": 5120,
+    "cols": 16,
+    "non_numeric_cols": [
+      "Order Date",
+      "Shipping Mode ",
+      "Region",
+      "Product Category",
+      "Product Price",
+      "Delivery Status",
+      "Coupon Code",
+      "Warehouse ID"
+    ],
+    "missing_pct": {
+      "Order ID": 0.0,
+      "Order Date": 0.0,
+      "Shipping Mode ": 1.7,
+      "Region": 0.0,
+      "Product Category": 1.1,
+      "Quantity": 0.0,
+      "Product Price": 0.0,
+      "Discount Rate": 3.1,
+      "Weight (kg)": 8.0,
+      "Distance km": 4.1,
+      "Scheduled Days": 0.0,
+      "Actual Days": 3.0,
+      "Sales": 2.3,
+      "Delivery Status": 0.0,
+      "Coupon Code": 72.3,
+      "Warehouse ID": 0.0
+    },
+    "missing_total_cells": 4893
+  },
+  "step2": {
+    "shipping_mode_variants_before": 20,
+    "shipping_mode_variants_after": 4
+  },
+  "step3": {
+    "unparsed_dates": 0
+  },
+  "step4_duplicates_removed": 120,
+  "step5": {
+    "weight_sentinel_or_negative": 15,
+    "weight_unit_error_grams_as_kg": 13,
+    "distance_impossible": 9,
+    "quantity_invalid": 14,
+    "actual_days_over_30": 24
+  },
+  "step6_price_sales_mismatch": 27,
+  "step7_demo_raw_price": {
+    "iqr_flagged": 352,
+    "zscore_flagged": 18,
+    "true_typos_injected": 30
+  },
+  "step7_capped_after_rules": {
+    "product_price": 109,
+    "weight_kg": 95,
+    "distance_km": 0
+  },
+  "step8_dropped_columns": [
+    "coupon_code",
+    "warehouse_id"
+  ],
+  "step8_rows_dropped_missing_target": 176,
+  "step8_imputation_mae_kg": {
+    "global_mean": 5.13,
+    "global_median": 4.14,
+    "category_median": 1.37,
+    "n_filled": 393
+  },
+  "step9_status_label_wrong": 100,
+  "step11_scaling": {
+    "MinMax": {
+      "product_price": [
+        0.0,
+        1.0,
+        0.19,
+        0.21
+      ],
+      "weight_kg": [
+        0.0,
+        1.0,
+        0.18,
+        0.22
+      ],
+      "distance_km": [
+        0.0,
+        1.0,
+        0.29,
+        0.17
+      ]
+    },
+    "Standard": {
+      "product_price": [
+        -0.92,
+        3.89,
+        0.0,
+        1.0
+      ],
+      "weight_kg": [
+        -0.81,
+        3.71,
+        0.0,
+        1.0
+      ],
+      "distance_km": [
+        -1.73,
+        4.3,
+        0.0,
+        1.0
+      ]
+    },
+    "Robust": {
+      "product_price": [
+        -0.45,
+        4.08,
+        0.42,
+        0.94
+      ],
+      "weight_kg": [
+        -0.75,
+        7.72,
+        0.77,
+        1.87
+      ],
+      "distance_km": [
+        -1.23,
+        3.59,
+        0.15,
+        0.8
+      ]
+    },
+    "Raw": {
+      "product_price": [
+        9.15,
+        583.04,
+        119.05,
+        119.42
+      ],
+      "weight_kg": [
+        0.14,
+        32.04,
+        5.86,
+        7.06
+      ],
+      "distance_km": [
+        7.6,
+        900.0,
+        263.47,
+        147.98
+      ]
+    }
+  },
+  "step11_skew": {
+    "price_skew": 1.64,
+    "log_price_skew": 0.29
+  },
+  "final_shape_clean": [
+    4824,
+    20
+  ],
+  "final_shape_model_ready": [
+    4824,
+    31
+  ],
+  "impact": {
+    "rows_used_lazy": 3494,
+    "rows_used_clean": 3862,
+    "mae_days_lazy": 1.047,
+    "mae_days_clean": 0.662,
+    "avg_actual_days_true": 4.37,
+    "avg_actual_days_lazy": 4.61,
+    "avg_actual_days_clean": 4.37,
+    "late_pct_true": 79.7,
+    "late_pct_lazy": 79.5,
+    "late_pct_clean": 79.8,
+    "avg_price_true": 119.41,
+    "avg_price_lazy": 179.49,
+    "avg_price_clean": 118.28
+  },
+  "scorecard": {
+    "completeness_before_pct": 94.0,
+    "completeness_after_pct": 100.0,
+    "duplicates_before": 120,
+    "duplicates_after": 0
+  }
+}
